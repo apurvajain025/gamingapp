@@ -1,23 +1,19 @@
 public class HelloApp {
     public static void main(String[] args) {
 
+        String greeting;
+
         // Check if no arguments are provided
         if (args.length == 0) {
-            System.out.println("Hello, World!");
-        } else {
-            // Create StringBuilder to store names
-            StringBuilder nameBuilder = new StringBuilder();
-
-            // Enhanced for loop to append names
-            for (String name : args) {
-                nameBuilder.append(name).append(", ");
-            }
-
-            // Remove trailing ", "
-            if (nameBuilder.length() > 0) {
-                String names = nameBuilder.substring(0, nameBuilder.length() - 2);
-                System.out.println("Hello, " + names + "!");
-            }
+            greeting = "Hello, World!";
+        } 
+        else {
+            // Join all arguments with ", " delimiter
+            String names = String.join(", ", args);
+            greeting = "Hello, " + names + "!";
         }
+
+        // Print the greeting
+        System.out.println(greeting);
     }
 }
