@@ -1,24 +1,23 @@
 public class HelloApp {
     public static void main(String[] args) {
 
-        // If no arguments provided → default message
+        // Check if no arguments are provided
         if (args.length == 0) {
             System.out.println("Hello, World!");
-            return;
+        } else {
+            // Create StringBuilder to store names
+            StringBuilder nameBuilder = new StringBuilder();
+
+            // Enhanced for loop to append names
+            for (String name : args) {
+                nameBuilder.append(name).append(", ");
+            }
+
+            // Remove trailing ", "
+            if (nameBuilder.length() > 0) {
+                String names = nameBuilder.substring(0, nameBuilder.length() - 2);
+                System.out.println("Hello, " + names + "!");
+            }
         }
-
-        // Use StringBuilder for efficient string concatenation
-        StringBuilder names = new StringBuilder();
-
-        // Enhanced for loop to iterate through arguments
-        for (String name : args) {
-            names.append(name).append(", ");
-        }
-
-        // Remove last comma and space
-        names.setLength(names.length() - 2);
-
-        // Print final greeting
-        System.out.println("Hello, " + names + "!");
     }
 }
